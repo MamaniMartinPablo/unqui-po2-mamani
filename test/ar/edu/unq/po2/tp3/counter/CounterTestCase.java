@@ -1,4 +1,4 @@
-package counter;
+package ar.edu.unq.po2.tp3.counter;
 
 import static org.junit.jupiter.api.Assertions.*;
 
