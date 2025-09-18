@@ -1,4 +1,4 @@
-package supermercado;
+package ar.edu.unq.po2.tp4.supermercado;
 
 
 public class Producto {

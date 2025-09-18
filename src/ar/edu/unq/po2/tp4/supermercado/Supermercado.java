@@ -1,4 +1,4 @@
-package supermercado;
+package ar.edu.unq.po2.tp4.supermercado;
 
 import java.util.ArrayList;
 import java.util.Iterator;
