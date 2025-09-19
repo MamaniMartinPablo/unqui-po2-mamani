@@ -25,12 +25,7 @@ public class Producto {
 	}
 	public Double getPrecio() {
 		// TODO Auto-generated method stub
-		if (this.precioCuidado) {
-			return this.precio * 0.9;
-		}else {
-			
-			return this.precio;
-		}
+		return this.precio;	
 	}
 	public Boolean esPrecioCuidado() {
 		// TODO Auto-generated method stub
