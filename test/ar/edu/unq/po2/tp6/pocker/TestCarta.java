@@ -22,7 +22,7 @@ class TestCarta {
 	@Test
 	void testConstructor() {
 		assertEquals(2, carta.getValor());
-		assertEquals("Picas", carta.getDiamante());
+		assertEquals("Picas", carta.getPalo());
 		
 	}
 	@Test

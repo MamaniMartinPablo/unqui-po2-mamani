@@ -12,6 +12,12 @@ public class Carta {
 		this.valor = valor;
 		this.palo = palo;
 	}
+    public Carta(String palo) {
+		
+		// TODO Auto-generated constructor stub
+		this.valor = 0;
+		this.palo = palo;
+	}
 	
 	
 	public Integer getValor() {
@@ -38,7 +44,7 @@ public class Carta {
 	}
 
 
-	private String getPalo() {
+	public String getPalo() {
 		// TODO Auto-generated method stub
 		return this.palo;
 	}
