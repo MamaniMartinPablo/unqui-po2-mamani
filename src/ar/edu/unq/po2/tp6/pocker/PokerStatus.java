@@ -58,7 +58,7 @@ public String verificar() {
 	
 }
 
-private boolean esColor() {
+public boolean esColor() {
 	// TODO Auto-generated method stub
 	String palo = this.cartas.get(0).getPalo();
 	int contador = 0;
@@ -81,7 +81,7 @@ private boolean esColor() {
 	return contador == 5;
 }
 
-private boolean esTrio() {
+public boolean esTrio() {
 	// TODO Auto-generated method stub
 	String primerLetra = this.cartas.get(0).getValor().toString();
 	int contador = 0;

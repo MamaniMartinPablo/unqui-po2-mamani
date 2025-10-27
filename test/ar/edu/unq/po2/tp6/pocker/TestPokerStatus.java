@@ -1,6 +1,13 @@
 package ar.edu.unq.po2.tp6.pocker;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.atLeastOnce;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -18,12 +25,21 @@ class TestPokerStatus {
 	Carta carta4d;Carta carta4p;Carta carta3t;
 	Carta carta6d;Carta carta6c;
 	Carta carta3d;Carta carta5d;
+	
+	PokerStatus jugada0;
+	PokerStatus jugada8;
+	
 
 	@BeforeEach
 	void setUp() throws Exception {
 		
-		carta2p = new Carta(2, "P");carta10p = new Carta(10,"P");
-		carta2c = new Carta(2, "C");carta2d = new Carta(2, "D");
+		carta2p = mock(Carta.class);
+		when(carta2p.getValor()).thenReturn(2);
+		when(carta2p.getPalo()).thenReturn("Z");
+		//carta2p = new Carta(2, "P");
+		carta10p = new Carta(10,"P");
+		carta2c = new Carta(2, "C");
+		carta2d = new Carta(2, "D");
 		carta2t = new Carta(2, "T");
 		
 		cartaqd = new Carta("QD");carta3p = new Carta(3,"P");
@@ -43,6 +59,10 @@ class TestPokerStatus {
 		
 		carta3d = new Carta(3,"D");carta5d = new Carta(5,"D");
 	
+		jugada0 = mock(PokerStatus.class);
+		jugada8 = new PokerStatus(carta2p, carta10p,carta2c ,carta2d ,carta2t );
+		
+		
 		jugada1 = new PokerStatus(carta2p, carta10p,carta2c ,carta2d ,carta2t );
 		jugada2 = new PokerStatus(cartaqd, carta3p,cartaqc, cartaqp, cartaqt);
 		jugada3 = new PokerStatus(carta10d, carta10p,carta2p,carta10c,carta10t);
@@ -50,6 +70,27 @@ class TestPokerStatus {
 		jugada5 = new PokerStatus(carta4d,carta4p,carta5p,carta10c, carta3t);
 		jugada6 = new PokerStatus(carta6d, carta3p,carta5p,carta6c,carta6t);
 		jugada7 = new PokerStatus(carta6d,carta3d,carta5d,carta10d, carta2d);
+	}
+	
+	@Test
+	void testEspiarJugada8() {
+		PokerStatus espiaJugada = spy(jugada8);
+		espiaJugada.verificar();
+		verify(espiaJugada, never()).esTrio();
+		assertEquals(espiaJugada.verificar(),"Poquer" );
+	}
+	
+	
+	@Test
+	void testVerificarJugada0() {
+		jugada0.esPocker();
+		verify(jugada0,times(1)).esPocker();
+	}
+	
+	@Test
+	void testVerificarJugadaCon4CartasIgualesDaPoker() {
+		when(jugada0.verificar()).thenReturn("Poquer");
+		assertEquals(jugada0.verificar(),"Poquer" );
 	}
 
 	@Test
